@@ -5,28 +5,42 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using GlutenFreeVictuals.Models;
+using System.Web;
+using GlutenFreeVictuals.Repositories;
 
 namespace GlutenFreeVictuals.Controllers
 {
     public class HomeController : Controller
     {
+        IRepository repo;
+
+        public HomeController(IRepository r)
+        {
+            repo = r;
+        }
+
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult Recipes()
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
+            ViewData["Message"] = "This is where you can browse the recipes, or search.";
+            List<Recipe> recipies = repo.Recipes;
+            recipies.Sort((r1, r2) => string.Compare(r1.Title, r2.Title, StringComparison.Ordinal));
+            return View(recipies);
         }
 
-        public IActionResult Contact()
+        public IActionResult Recipe(string title)
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Individual Recipe";
 
-            return View();
+            Recipe recipe = repo.Recipes.Where(r =>
+            {
+                return r.Title == title;
+            }).FirstOrDefault();
+            return View(recipe);
         }
 
         public IActionResult Privacy()
