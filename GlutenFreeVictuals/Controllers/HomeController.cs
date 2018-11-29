@@ -74,6 +74,11 @@ namespace GlutenFreeVictuals.Controllers
             
         }
 
+        public IActionResult Converter()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

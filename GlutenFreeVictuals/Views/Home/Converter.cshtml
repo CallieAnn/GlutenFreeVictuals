@@ -1,0 +1,70 @@
+﻿@model GlutenFreeVictuals.Models.Measurement
+@{
+    ViewData["Title"] = "Measurement Converter";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<div class="container">
+    <form method="post">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Value</th>
+                    <th>Type</th>
+                    <th>Conversions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>
+                        Weight:
+                        <input name="Weight" />
+                        
+                    </td>
+                    <td>
+                        <select name="Weight Types">
+                            <option value="ounces">Ounces</option>
+                            <option value="pounds">Pounds</option>
+                            <option value="grams">Grams</option>
+                            <option value="kilograms">Kilograms</option>
+                        </select>
+                        <br><br>
+                        
+                    </td>
+                    <td rowspan="2">
+                        Conversion1
+                        Conversion2
+                        Conversion3
+                        Conversion4
+                    </td>  
+                </tr>
+                <tr>
+                    <td>
+                        Volume:
+                        <input name="Volume" />
+                        
+                    </td>
+                    <td>
+                        <select name="Volume Types">
+                            <option value="milliliter">Milliliter</option>
+                            <option value="liter">Liter</option>
+                            <option value="ounces">Ounces</option>
+                            <option value="pints">Pints</option>
+                        </select>
+                        <br><br>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <input type="submit">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+
