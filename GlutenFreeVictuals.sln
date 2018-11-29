@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlutenFreeVictuals", "GlutenFreeVictuals\GlutenFreeVictuals.csproj", "{2425BCB9-0203-42D7-9E68-692E16628091}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlutenFreeVictuals.Tests", "GlutenFreeVictuals.Tests\GlutenFreeVictuals.Tests.csproj", "{ABE73770-20F0-40CF-BC46-402F25164A73}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2425BCB9-0203-42D7-9E68-692E16628091}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2425BCB9-0203-42D7-9E68-692E16628091}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2425BCB9-0203-42D7-9E68-692E16628091}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABE73770-20F0-40CF-BC46-402F25164A73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABE73770-20F0-40CF-BC46-402F25164A73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABE73770-20F0-40CF-BC46-402F25164A73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABE73770-20F0-40CF-BC46-402F25164A73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
