@@ -9,7 +9,7 @@ namespace GlutenFreeVictuals.Repositories
     public class FakeRepository : IRepository
     {
         private List<Recipe> recipes = new List<Recipe>();
-        public List<Recipe> Recipies { get {return recipes; } }
+        public List<Recipe> Recipes { get {return recipes; } }
 
         public FakeRepository()
         {
@@ -37,13 +37,13 @@ namespace GlutenFreeVictuals.Repositories
             Recipe firstRecipe = new Recipe
             {
                 Title = "Apple Pie",
-                Author = "Patricia",
+                Name = "Patricia",
                 Date = DateTime.Now,
                 Ingredients = "Flour, apples, sugar, butter, cinnamon",
                 Instructions = "Measure the flour...",
                 PrepTimeMinutes = 10,
                 CookTimeMinutes = 50,
-                SourceUrl = ""
+               
             };
 
             recipes.Add(firstRecipe);

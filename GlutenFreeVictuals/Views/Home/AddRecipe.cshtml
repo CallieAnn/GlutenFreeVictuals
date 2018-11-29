@@ -1,0 +1,49 @@
+﻿@model GlutenFreeVictuals.Models.Recipe
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Share a recipe";
+}
+
+<div class="container">
+    <h3>Share a Recipe</h3>
+    Have a gluten-free recipe you'd like to share?  Please enter in the information below and submit!
+    <form asp-action="AddRecipe" method="post">
+        <div asp-validation-summary="All" style="color: darkred"></div>
+        <div class="form-group">
+            <label asp-for="Title">Recipe Title:</label>
+            <input class="form-control" asp-for="Title" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Name">Name:</label>
+            <input class="form-control" asp-for="Name" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Date">Recipe Date:</label>
+            <input class="form-control" asp-for="Date" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Ingredients">Ingredients:</label>
+            <textarea class="form-control" asp-for="Ingredients" rows="10" cols="30">
+                    </textarea>
+        </div>
+        <div class="form-group">
+            <label asp-for="Instructions">Instructions:</label>
+            <textarea class="form-control" asp-for="Instructions" rows="10" cols="30">
+                    </textarea>
+        </div>
+        <div class="form-group">
+            <label asp-for="PrepTimeMinutes">Preparation Time in Minutes:</label>
+            <input class="form-control" asp-for="PrepTimeMinutes" />
+        </div>
+        <div class="form-group">
+            <label asp-for="CookTimeMinutes">Cook Time in Minutes:</label>
+            <input class="form-control" asp-for="CookTimeMinutes" />
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-default">
+                Submit Recipe
+            </button>
+        </div>
+    </form>
+</div>
