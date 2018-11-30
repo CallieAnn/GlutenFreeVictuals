@@ -9,7 +9,7 @@ namespace GlutenFreeVictuals.Repositories
     public class FakeRepository : IRepository
     {
         private List<Recipe> recipes = new List<Recipe>();
-        public List<Recipe> Recipes { get {return recipes; } }
+        public IQueryable<Recipe> Recipes { get { return recipes.AsQueryable(); } }
 
         public FakeRepository()
         {
@@ -47,6 +47,20 @@ namespace GlutenFreeVictuals.Repositories
             };
 
             recipes.Add(firstRecipe);
+
+            Recipe secondRecipe = new Recipe
+            {
+                Title = "Three Bean Salad",
+                Name = "Rick",
+                Date = DateTime.Now,
+                Ingredients = "kidney beans, garbanzo beans, green beans, olive oil, garlic, apple cider vinegar",
+                Instructions = "Combine the beans...",
+                PrepTimeMinutes = 20,
+                CookTimeMinutes = 0,
+
+            };
+
+            recipes.Add(secondRecipe);
         }
     }
 }

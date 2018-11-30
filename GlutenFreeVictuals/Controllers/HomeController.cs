@@ -27,8 +27,22 @@ namespace GlutenFreeVictuals.Controllers
         public IActionResult Recipes()
         {
             ViewData["Message"] = "This is where you can browse the recipes, or search.";
-            List<Recipe> recipes = repo.Recipes;
+            List<Recipe> recipes = repo.Recipes.ToList();
             recipes.Sort((r1, r2) => string.Compare(r1.Title, r2.Title, StringComparison.Ordinal));
+            return View(recipes);
+        }
+
+        [HttpPost]
+        public IActionResult Recipes(string title)
+        {
+            //List<Recipe> recipes = repo.Recipes.Where(rec =>
+            //{
+            //    return rec.Title == title;
+            //}).ToList();
+            List<Recipe> recipes = (from r in repo.Recipes
+                                    where r.Title == title
+                                    select r).ToList();
+
             return View(recipes);
         }
 
@@ -36,10 +50,16 @@ namespace GlutenFreeVictuals.Controllers
         {
             ViewData["Message"] = "Individual Recipe";
 
-            Recipe recipe = repo.Recipes.Where(r =>
-            {
-                return r.Title == title;
-            }).FirstOrDefault();
+            //Recipe recipe = repo.Recipes.Where(r =>
+            //{
+            //    return r.Title == title;
+            //}).FirstOrDefault();
+            //return View(recipe);
+
+            Recipe recipe = (from r in repo.Recipes
+                             where r.Title == title
+                             select r).FirstOrDefault();
+
             return View(recipe);
         }
 

@@ -6,6 +6,11 @@
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
 
+<form method="post">
+    Search by Title: 
+    <input name="title" />
+    <input type="submit" />
+</form>
 
 <div class="container">
     @foreach (Recipe recipe in Model)

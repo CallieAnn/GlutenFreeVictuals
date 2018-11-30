@@ -8,7 +8,7 @@ namespace GlutenFreeVictuals.Repositories
 {
     public interface IRepository
     {
-        List<Recipe> Recipes { get; }
+        IQueryable<Recipe> Recipes { get; }
         void AddRecipe(Recipe recipe, User user);
         Recipe GetRecipeByTitle(string title);
         void AddRating(Recipe recipe, Rating rating);

@@ -8,9 +8,9 @@ namespace GlutenFreeVictuals.Models
 {
     public class Recipe
     {
-        private IEnumerable<Rating> ratings = new List<Rating>();
+        private List<Rating> ratings = new List<Rating>();
 
-        public int RecipeId { get; set; }
+        public int RecipeID { get; set; }
         [Required(ErrorMessage = "Please enter a title")]
         public string Title { get; set; }
         [Required(ErrorMessage = "Please enter a date")]
@@ -26,6 +26,6 @@ namespace GlutenFreeVictuals.Models
         [Required(ErrorMessage = "Please enter cook time")]
         public int CookTimeMinutes { get; set; }
 
-        public IEnumerable<Rating> Ratings { get { return ratings; } }
+        public ICollection<Rating> Ratings { get { return ratings; } }
     }
 }
