@@ -1,12 +1,8 @@
 ﻿@model GlutenFreeVictuals.Models.Measurement
 @{
+    Layout = "_Layout";
     ViewData["Title"] = "Measurement Converter";
 }
-<!DOCTYPE html>
-<html>
-<head>
-<script src="~/js/site.js"></script>
-</head>
 <body>
     <h2>@ViewData["Title"]</h2>
     <h3>@ViewData["Message"]</h3>
@@ -25,7 +21,7 @@
                 <tr>
                     <td>
                         Weight:
-                        <input name="Weight" id="weightInput" type="number" step=".1"/>
+                        <input name="Weight" id="weightInput" type="number" step=".1" min="0.0"/>
 
                     </td>
                     <td>
@@ -45,7 +41,7 @@
                 <tr>
                     <td>
                         Volume:
-                        <input name="Volume" id="volumeInput" type="number" step=".1"/>
+                        <input name="Volume" id="volumeInput" type="number" step=".1" min="0.0"/>
 
                     </td>
                     <td>
