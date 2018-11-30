@@ -2,34 +2,67 @@
 @{
     ViewData["Title"] = "Recipe";
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
+<!DOCTYPE html>
+<html>
 
-<div class="container">
-    
-        <h3>Title</h3>
-        @Model.Title <br />
+<head>
+    <script>
+        function myFunction() {
+            document.getElementById("demo").innerHTML = "Paragraph changed.";
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div>
+        <h2>@Model.Title</h2>
 
-        <h3>Name</h3>
-        @Model.Name <br />
+        <div>
+            <span class="fa fa-star checked" style="font-size:xx-large"></span>
+            <span class="fa fa-star checked" style="font-size:xx-large"></span>
+            <span class="fa fa-star checked" style="font-size:xx-large"></span>
+            <span class="fa fa-star" style="font-size:xx-large"></span>
+            <span class="fa fa-star" style="font-size:xx-large"></span>
+            
+                <table class="table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Prep Time</th>
+                            <th>Cook Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@Model.PrepTimeMinutes</td>
+                            <td>@Model.CookTimeMinutes</td>
+                        </tr>
+                    </tbody>
+               </table>
+                <br />
 
-        <h3>Date</h3>
-        @Model.Date <br />
 
-        <h3>Ingredients</h3>
-        @Model.Ingredients <br />
+                <h3>Name</h3>
+                @Model.Name
+                <br />
 
-        <h3>Instructions</h3>
-        @Model.Instructions <br />
+                <h3>Date</h3>
+                @Model.Date
+                <br />
 
-        <h3>Ingredients</h3>
-        @Model.Ingredients <br />
+                <h3>Ingredients</h3>
+                @Model.Ingredients
+                <br />
 
-        <h3>Prep Time</h3>
-        @Model.PrepTimeMinutes <br />
+                <h3>Instructions</h3>
+                @Model.Instructions
+                <br />
 
-        <h3>Cook Time</h3>
-        @Model.CookTimeMinutes <br />
 
-   
 </div>
+
+    </div>
+</body>
+    
+</html>
+
+
