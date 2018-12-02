@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -34,7 +35,12 @@ namespace GlutenFreeVictuals
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddTransient<IRepository, FakeRepository>();
+            services.AddTransient<IRepository, Repository>();
+
+            services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(
+                Configuration.GetConnectionString("SqlServerConnection")));
+   
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +66,8 @@ namespace GlutenFreeVictuals
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            SeedData.Seed(app);
         }
     }
 }

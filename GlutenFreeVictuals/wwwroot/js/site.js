@@ -22,9 +22,9 @@ function convert() {
     function getConversions() {
         weight = document.getElementById("weightInput").value;
         volume = document.getElementById("volumeInput").value;
-        var weightType = document.getElementById("weightType");
+        let weightType = document.getElementById("weightType");
         selectedWeightType = weightType.options[weightType.selectedIndex].value;
-        var volumeType = document.getElementById("volumeType");
+        let volumeType = document.getElementById("volumeType");
         selectedVolumeType = volumeType.options[volumeType.selectedIndex].value;
         
 
@@ -100,8 +100,8 @@ function convert() {
     }
 
     function displayConversions() {
-        var weightConversion = document.getElementById("weightConversions");
-        var volumeConversion = document.getElementById("volumeConversions");
+        let weightConversion = document.getElementById("weightConversions");
+        let volumeConversion = document.getElementById("volumeConversions");
        
         if (weight != "" && weight != null) {
             weightConversion.innerHTML = "<h4>Ounces: </h4>" + ounces + "\n" +

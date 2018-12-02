@@ -13,7 +13,6 @@ namespace GlutenFreeVictuals.Models
         public int RecipeID { get; set; }
         [Required(ErrorMessage = "Please enter a title")]
         public string Title { get; set; }
-        [Required(ErrorMessage = "Please enter a date")]
         public DateTime Date { get; set; }
         [Required(ErrorMessage = "Please enter a name")]
         public string Name { get; set; }
@@ -21,9 +20,7 @@ namespace GlutenFreeVictuals.Models
         public string Instructions { get; set; }
         [Required(ErrorMessage = "Please enter ingredients")]
         public string Ingredients { get; set; }
-        [Required(ErrorMessage = "Please enter prep time")]
-        public int PrepTimeMinutes { get; set; }
-        [Required(ErrorMessage = "Please enter cook time")]
+        public int PrepTimeMinutes { get; set; } 
         public int CookTimeMinutes { get; set; }
 
         public ICollection<Rating> Ratings { get { return ratings; } }
