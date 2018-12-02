@@ -23,7 +23,10 @@ namespace GlutenFreeVictuals.Repositories
 
         public void AddRating(Recipe recipe, Rating rating)
         {
-            //Do something to add rating later
+            recipe.Ratings.Add(rating);
+
+            context.Recipes.Update(recipe);
+            context.SaveChanges();
         }
 
         public void AddRecipe(Recipe recipe, User user)

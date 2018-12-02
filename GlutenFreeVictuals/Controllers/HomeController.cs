@@ -32,6 +32,7 @@ namespace GlutenFreeVictuals.Controllers
             return View(recipes);
         }
 
+        //User searches recipes by title
         [HttpPost]
         public IActionResult Recipes(string title)
         {
@@ -63,18 +64,39 @@ namespace GlutenFreeVictuals.Controllers
             return View(recipe);
         }
 
+        //Adds a rating to recipe
+        [HttpPost]
+        public IActionResult Recipe(string score, string title)
+        {
+            int rating;
+            int.TryParse(score, out rating);
+
+            Rating rate = new Rating
+            {
+                RatingScore = rating
+            };
+            Recipe recipe = (from r in repo.Recipes
+                             where r.Title == title
+                             select r).FirstOrDefault();
+
+            repo.AddRating(recipe, rate);
+
+            return View(recipe);
+        }
+
         [HttpGet]
         public IActionResult AddRecipe()
         {
             return View();
         }
 
+        //Add a recipe
         [HttpPost]
         public IActionResult AddRecipe(Recipe recipe)
         {
             if (ModelState.IsValid)
             {
-                //create new user for name entered in story form
+                //create new user for name entered in form
                 User u = new User()
                 {
                     Name = recipe.Name
