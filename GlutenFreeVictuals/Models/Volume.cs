@@ -10,7 +10,7 @@ namespace GlutenFreeVictuals.Models
         public double StartVolume { get; set; }
         public override void GetConversions(double amount, string type)
         {
-            throw new NotImplementedException();
+            //complete if need conversions in C#
         }
     }
 }

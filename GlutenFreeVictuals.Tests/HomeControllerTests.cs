@@ -30,8 +30,40 @@ namespace GlutenFreeVictuals.Tests
 
             homeController.AddRecipe(recipe);
 
+            
             //assert
-            Assert.Equal("Buche de Noel", repo.Recipes[repo.Recipes.Count - 1].Title);
+            //Assert.Equal("Buche de Noel", repo.Recipes[repo.Recipes.Count - 1].Title);
+        }
+
+        [Fact]
+        public void TestRecipeAddRating()
+        {
+            //arrange
+            var repo = new FakeRepository();
+            var homeController = new HomeController(repo);
+            //act
+            Recipe recipe = new Recipe
+            {
+                Title = "Buche de Noel",
+                Date = DateTime.Parse("11/15/2018"),
+                Name = "Clementine",
+                Ingredients = "Cream, cocoa, eggs, sugar",
+                Instructions = "Start by separating the eggs and whipping the egg whites...",
+                PrepTimeMinutes = 20,
+                CookTimeMinutes = 15
+            };
+            homeController.AddRecipe(recipe);
+
+            string rating = "5";
+
+            homeController.Recipe(rating, recipe.Title);
+
+            //assert
+
+            Assert.NotNull(repo.GetRecipeByTitle("Buche de Noel").Ratings);
+            
+
         }
     }
 }
+
