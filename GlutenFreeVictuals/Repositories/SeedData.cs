@@ -31,20 +31,20 @@ namespace GlutenFreeVictuals.Repositories
                     CookTimeMinutes = 45,
                     PrepTimeMinutes = 20
                 };
-                u.Name = r.Name;
+                u.FirstName = r.Name;
 
                 u.Recipes.Add(r);
 
                 User u2 = new User
                 {
-                    Name = "William"
+                    FirstName = "William"
                 };
 
                 DateTime r2Date;
                 DateTime.TryParse("11/28/2018", out r2Date);
                 Recipe r2 = new Recipe
                 {
-                    Name = u2.Name,
+                    Name = u2.FirstName,
                     Title = "Fajitas",
                     Date = r2Date,
                     Ingredients = "chicken, cilantro, onions, cheese, tortillas...",

@@ -99,7 +99,7 @@ namespace GlutenFreeVictuals.Controllers
                 //create new user for name entered in form
                 User u = new User()
                 {
-                    Name = recipe.Name
+                    FirstName = recipe.Name
                 };
 
                 //add story and corresponding user to repository

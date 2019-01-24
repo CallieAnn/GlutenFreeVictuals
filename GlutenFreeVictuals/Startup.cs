@@ -11,6 +11,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Identity;
+using GlutenFreeVictuals.Models;
 
 namespace GlutenFreeVictuals
 {
@@ -40,6 +42,10 @@ namespace GlutenFreeVictuals
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(
                 Configuration.GetConnectionString("SqlServerConnection")));
+
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<AppDbContext>()
+                .AddDefaultTokenProviders();
    
         }
 
@@ -59,6 +65,7 @@ namespace GlutenFreeVictuals
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
@@ -66,7 +73,7 @@ namespace GlutenFreeVictuals
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-
+            
             SeedData.Seed(app);
         }
     }

@@ -4,14 +4,16 @@ using GlutenFreeVictuals.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GlutenFreeVictuals.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190124030132_IdAndEmailAddedtoUserForIdentity")]
+    partial class IdAndEmailAddedtoUserForIdentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,13 +31,9 @@ namespace GlutenFreeVictuals.Migrations
 
                     b.Property<int?>("RecipeID");
 
-                    b.Property<string>("UserId");
-
                     b.HasKey("RatingID");
 
                     b.HasIndex("RecipeID");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Ratings");
                 });
@@ -64,11 +62,7 @@ namespace GlutenFreeVictuals.Migrations
                     b.Property<string>("Title")
                         .IsRequired();
 
-                    b.Property<string>("UserId");
-
                     b.HasKey("RecipeID");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Recipes");
                 });
@@ -127,9 +121,6 @@ namespace GlutenFreeVictuals.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired();
-
                     b.Property<string>("Email")
                         .HasMaxLength(256);
 
@@ -169,8 +160,6 @@ namespace GlutenFreeVictuals.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -239,33 +228,11 @@ namespace GlutenFreeVictuals.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("GlutenFreeVictuals.Models.User", b =>
-                {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
-
-                    b.Property<string>("FirstName");
-
-                    b.ToTable("User");
-
-                    b.HasDiscriminator().HasValue("User");
-                });
-
             modelBuilder.Entity("GlutenFreeVictuals.Models.Rating", b =>
                 {
                     b.HasOne("GlutenFreeVictuals.Models.Recipe")
                         .WithMany("Ratings")
                         .HasForeignKey("RecipeID");
-
-                    b.HasOne("GlutenFreeVictuals.Models.User")
-                        .WithMany("Ratings")
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("GlutenFreeVictuals.Models.Recipe", b =>
-                {
-                    b.HasOne("GlutenFreeVictuals.Models.User")
-                        .WithMany("Recipes")
-                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
