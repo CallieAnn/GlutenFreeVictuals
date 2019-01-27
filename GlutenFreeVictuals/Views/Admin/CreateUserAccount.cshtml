@@ -1,0 +1,31 @@
+﻿@model UserViewModel
+
+<div class="container">
+    <h3>Create User</h3>
+    <form asp-action="CreateUserAccount" method="post">
+        <div asp-validation-summary="All" style="color: darkred"></div>
+        <div class="form-group">
+            <label asp-for="FirstName">First Name:</label>
+            <input asp-for="FirstName" input class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label asp-for="UserName">User Name:</label>
+            <input asp-for="UserName" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email">Email:</label>
+            <input asp-for="Email" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Password">Password:</label>
+            <input asp-for="Password" class="form-control" />
+        </div>
+        
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">
+                Create
+            </button>
+            <a asp-action="Index" class="btn btn-group-sm">Cancel</a>
+        </div>
+    </form>
+</div>
